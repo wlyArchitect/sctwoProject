@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wh.sys.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.wh.sys.entity.User">
+    <id column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_PWD" jdbcType="VARCHAR" property="userPwd" />
+    <result column="USER_SEX" jdbcType="DECIMAL" property="userSex" />
+    <result column="USER_PHONE" jdbcType="VARCHAR" property="userPhone" />
+    <result column="USER_HEAD_PORTRAIT" jdbcType="VARCHAR" property="userHeadPortrait" />
+    <result column="USER_ROLE" jdbcType="DECIMAL" property="userRole" />
+    <result column="USER_CREATE_DATE" jdbcType="TIMESTAMP" property="userCreateDate" />
+    <result column="AVAILABLE" jdbcType="DECIMAL" property="available" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER_ID, USER_NAME, USER_PWD, USER_SEX, USER_PHONE, USER_HEAD_PORTRAIT, USER_ROLE, 
+    USER_CREATE_DATE, AVAILABLE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from EXAM_USERS
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from EXAM_USERS
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.wh.sys.entity.User">
+    insert into EXAM_USERS (USER_ID, USER_NAME, USER_PWD, 
+      USER_SEX, USER_PHONE, USER_HEAD_PORTRAIT, 
+      USER_ROLE, USER_CREATE_DATE, AVAILABLE
+      )
+    values (#{userId,jdbcType=DECIMAL}, #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, 
+      #{userSex,jdbcType=DECIMAL}, #{userPhone,jdbcType=VARCHAR}, #{userHeadPortrait,jdbcType=VARCHAR}, 
+      #{userRole,jdbcType=DECIMAL}, #{userCreateDate,jdbcType=TIMESTAMP}, #{available,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wh.sys.entity.User">
+    insert into EXAM_USERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        USER_ID,
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="userPwd != null">
+        USER_PWD,
+      </if>
+      <if test="userSex != null">
+        USER_SEX,
+      </if>
+      <if test="userPhone != null">
+        USER_PHONE,
+      </if>
+      <if test="userHeadPortrait != null">
+        USER_HEAD_PORTRAIT,
+      </if>
+      <if test="userRole != null">
+        USER_ROLE,
+      </if>
+      <if test="userCreateDate != null">
+        USER_CREATE_DATE,
+      </if>
+      <if test="available != null">
+        AVAILABLE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      seq_user.nextval,
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+        #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=DECIMAL},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userHeadPortrait != null">
+        #{userHeadPortrait,jdbcType=VARCHAR},
+      </if>
+      <if test="userRole != null">
+        #{userRole,jdbcType=DECIMAL},
+      </if>
+      <if test="userCreateDate != null">
+        #{userCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="available != null">
+        #{available,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wh.sys.entity.User">
+    update EXAM_USERS
+    <set>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+        USER_PWD = #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        USER_SEX = #{userSex,jdbcType=DECIMAL},
+      </if>
+      <if test="userPhone != null">
+        USER_PHONE = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userHeadPortrait != null">
+        USER_HEAD_PORTRAIT = #{userHeadPortrait,jdbcType=VARCHAR},
+      </if>
+      <if test="userRole != null">
+        USER_ROLE = #{userRole,jdbcType=DECIMAL},
+      </if>
+      <if test="userCreateDate != null">
+        USER_CREATE_DATE = #{userCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="available != null">
+        AVAILABLE = #{available,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wh.sys.entity.User">
+    update EXAM_USERS
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_PWD = #{userPwd,jdbcType=VARCHAR},
+      USER_SEX = #{userSex,jdbcType=DECIMAL},
+      USER_PHONE = #{userPhone,jdbcType=VARCHAR},
+      USER_HEAD_PORTRAIT = #{userHeadPortrait,jdbcType=VARCHAR},
+      USER_ROLE = #{userRole,jdbcType=DECIMAL},
+      USER_CREATE_DATE = #{userCreateDate,jdbcType=TIMESTAMP},
+      AVAILABLE = #{available,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </update>
+
+  <!-- 用户登陆 -->
+  <select id="login" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from EXAM_USERS
+    where USER_NAME=#{userName} and USER_PWD=#{userPwd}
+  </select>
+  <!-- 根据用户查询用户 -->
+  <select id="selectByUserName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from EXAM_USERS
+    where USER_NAME=#{userName}
+  </select>
+
+</mapper>
