@@ -43,4 +43,11 @@ public class SystemController {
     public String toMakeFriendsPage(){
         return "system/makeFriends/makeFriends";
     }
+    /**
+     * 跳转到后台界面
+     */
+    @RequestMapping("/toHouTaiPage")
+    public String toHouTaiPage(){
+        return "system/background/index";
+    }
 }

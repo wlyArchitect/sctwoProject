@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>论坛主页</title>
+    <link rel="stylesheet" href="resources/layui/css/layui.css">
+    <script src="resources/layui/layui.js"></script>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0 auto !important;
+        }
+
+        #footer {
+            height: 75px;
+            line-height: 25px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background: #333;
+            color: #fff;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+<!-- 轮播图片 -->
+<div class="layui-carousel" id="test1">
+    <div carousel-item>
+        <div>条目1</div>
+        <div>条目2</div>
+        <div>条目3</div>
+        <div>条目4</div>
+        <div>条目5</div>
+    </div>
+</div>
+
+<div class="layui-row" style="border:0px solid red;width:60%;height:300px;">
+    <!-- 左侧部分 -->
+    <div class="layui-col-md4" style="border: 0px solid wheat;height: 100px;">
+        <div class="layui-row grid-demo">
+            <div class="layui-col-md12">
+                <div class="grid-demo grid-demo-bg1"><b>我在贴吧</b></div>
+            </div>
+            <div class="layui-col-md4" style="border: 1px solid wheat;
+                position: relative;top:4px;
+width: 70px;height: 70px;background: url('resources/layui/images/face/0.gif') no-repeat center;background-size: 100% 100%;">
+            </div>
+            <div class="layui-col-md8">
+                <div class="grid-demo grid-demo-bg3"><font style="font-size: 12px;"><span
+                        style="color: #7e9eff">欢迎您,主公</span></font></div>
+            </div>
+            <div class="layui-col-md12" style="position:relative;top:18px;">
+                <b>爱逛的吧</b>
+            </div>
+            <!-- todo 根据浏览的数量,显示贴吧 -->
+            <div class="layui-col-md6" style="position:relative;top:24px;">
+                <div class="layui-col-md12">
+                    <button type="button" class="layui-btn layui-btn-normal ">学习吧</button>
+                </div>
+                <div class="layui-col-md12"><font style="color: #666666">总计贴子数:</font></div>
+                <div class="layui-col-md12" style="text-align: center">4</div>
+            </div>
+            <div class="layui-col-md6" style="position:relative;top:24px;">
+                <div class="layui-col-md12">
+                    <button type="button" class="layui-btn layui-btn-normal ">动漫吧</button>
+                </div>
+                <div class="layui-col-md12"><font style="color: #666666">总计贴子数:</font></div>
+                <div class="layui-col-md12" style="text-align: center">24</div>
+            </div>
+        </div>
+    </div>
+    <!-- 右侧部分-->
+    <div class="layui-col-md8">
+        <div class="layui-row grid-demo grid-demo-bg1" style="height: 300px;border: 1px solid #c2ceff">
+            <div class="layui-col-md6" style="height: 150px;border: 1px solid wheat">
+                <div class="layui-col-md6" style="height:148px;background: url('resources/layui/images/face/dongman.jpg') ;background-size: 100% 100%;"></div>
+                <div class="layui-col-md6">
+                    <font color="#fc7d6e">推荐</font>
+                    <button type="button" class="layui-btn layui-btn-xs layui-btn-primary">动漫吧</button>
+                </div>
+            </div>
+            <div class="layui-col-md6" style="height: 150px;border: 1px solid wheat">
+                <div class="layui-col-md6" style="height:148px;background: url('resources/layui/images/face/shici.jpg') ;background-size: 100% 100%;"></div>
+                <div class="layui-col-md6">
+                    <font color="#fc7d6e">推荐</font>
+                    <button type="button" class="layui-btn layui-btn-xs layui-btn-primary">诗词吧</button>
+                </div>
+            </div>
+            <div class="layui-col-md6" style="height: 150px;border: 1px solid wheat">
+                <div class="layui-col-md6" style="height:148px;background: url('resources/layui/images/face/youxi.jpg') ;background-size: 100% 100%;"></div>
+                <div class="layui-col-md6">
+                    <font color="#fc7d6e">推荐</font>
+                    <button type="button" class="layui-btn layui-btn-xs layui-btn-primary">游戏吧</button>
+                </div>
+            </div>
+            <div class="layui-col-md6" style="height: 150px;border: 1px solid wheat">
+                <div class="layui-col-md6" style="height:148px;background: url('resources/layui/images/face/xuexi.jpg') ;background-size: 100% 100%;"></div>
+                <div class="layui-col-md6">
+                    <font color="#fc7d6e">推荐</font>
+                    <button type="button" class="layui-btn layui-btn-xs layui-btn-primary">学习吧</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<div id="footer">
+    <span><b>组员:</b></span>
+    <div>xxx xxx xxx</div>
+    <span>Copyright © 2019 NewLife365
+Powered by .NET Core 3.1.0 on Linux</span>
+</div>
+<script>
+    //注意：导航 依赖 element 模块，否则无法进行二级菜单功能性操作
+    layui.use(['layer', 'element', 'jquery'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var element = layui.element;
+        //一些事件监听
+        // element.on('nav(navTop)', function(date){
+        //     var text = date.text();
+        //     layer.msg(text);
+        //     if (text=="注销"){
+        //     }
+        // });
+        //"注销"的监听
+        $("#logout").click(function () {
+            layer.confirm('你真的要退出吗?', {icon: 3, title: '提示'}, function (index) {
+                layer.close(index);
+                var xhr = $.ajax(
+                    {
+                        type: "post",
+                        url: "${whContext}/testUser.do",
+                        data: "name=" + user,
+                        async: false
+                    }).responseText;
+
+            })
+        });
+
+    });
+    //轮播
+    layui.use('carousel', function () {
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1'
+            , width: '60%' //设置容器宽度
+            , height: '240px'
+            , arrow: 'always' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+</script>
+</body>
+</html>

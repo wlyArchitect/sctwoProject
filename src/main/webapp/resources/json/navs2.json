@@ -1,0 +1,110 @@
+[
+	{
+		"title": "用户模块",
+		"icon": "&#xe655;",
+		"href": "page/news/newsList.html",
+		"spread": true,
+		"children": [
+			{
+				"title": "用户信息管理",
+				"icon": "&#xe66f;",
+				"href": "page/404.html",
+				"spread": false
+			}
+		]
+	},
+	{
+		"title": "论坛模块",
+		"icon": "&#xe634;",
+		"href": "page/img/images.html",
+		"spread": true,
+		"children": [
+			{
+				"title": "回帖管理",
+				"icon": "&#xe61c;",
+				"href": "page/404.html",
+				"spread": false
+			},
+			{
+				"title": "举报回帖",
+				"icon": "&#xe609;",
+				"href": "page/login/login.html",
+				"spread": false
+			},
+			{
+				"title": "举报发帖",
+				"icon": "&#xe61c;",
+				"href": "page/404.html",
+				"spread": false
+			}
+		]
+	},
+	{
+		"title": "考试模块",
+		"icon": "&#xe716;",
+		"href": "",
+		"spread": false,
+		"children": [
+			{
+				"title": "题库管理",
+				"icon": "&#xe61c;",
+				"href": "page/404.html",
+				"spread": false
+			},
+			{
+				"title": "考卷管理",
+				"icon": "&#xe609;",
+				"href": "page/login/login.html",
+				"spread": false,
+				"target": "_blank"
+			},
+			{
+				"title": "学生考卷管理",
+				"icon": "&#xe609;",
+				"href": "page/login/login.html",
+				"spread": false,
+				"target": "_blank"
+			},
+			{
+				"title": "日志管理",
+				"icon": "&#xe609;",
+				"href": "page/login/login.html",
+				"spread": false
+			},
+			{
+				"title": "系统公告",
+				"icon": "&#xe609;",
+				"href": "page/login/login.html",
+				"spread": false
+			}
+		]
+	},
+	{
+		"title": "统计分析",
+		"icon": "&#xe630;",
+		"href": "",
+		"spread": false,
+		"children": [
+			{
+				"title": "条形图",
+				"icon": "&#xe61c;",
+				"href": "page/404.html",
+				"spread": false
+			},
+			{
+				"title": "曲线图",
+				"icon": "&#xe609;",
+				"href": "page/login/login.html",
+				"spread": false,
+				"target": "_blank"
+			},
+			{
+				"title": "柱子图",
+				"icon": "&#xe609;",
+				"href": "page/login/login.html",
+				"spread": false,
+				"target": "_blank"
+			}
+		]
+	}
+]

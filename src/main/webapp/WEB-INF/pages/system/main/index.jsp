@@ -145,10 +145,10 @@ Powered by .NET Core 3.1.0 on Linux</span>
         });
         //后台
         $("#houTai").click(function () {
-            layer.msg("进入后台中...");
+            //layer.msg("进入后台中...");
             //刷新界面
             // location.reload();
-
+            window.location.href="${whContextPath}/sys/toHouTaiPage.action";
         })
     });
     //轮播
