@@ -50,12 +50,12 @@
         <a href="javascript:;">考试</a>
         <dl class="layui-nav-child">
             <!-- 二级菜单 -->
-            <dd><a href="javascript:;">开始考试</a></dd>
-            <dd><a href="javascript:;">考试历史</a></dd>
+            <dd><a href="javascript:;" id="choiceExam">选择考试</a></dd>
+            <dd><a href="javascript:;" id="examHistory">考试历史</a></dd>
         </dl>
     </li>
     <li class="layui-nav-item"><a href="javascript:;" id="lunTan">论坛</a></li>
-    <li class="layui-nav-item"><a href="javascript:;">交友</a></li>
+    <li class="layui-nav-item"><a href="javascript:;" id="makeFriends">交友</a></li>
     <li class="layui-nav-item"><a href="javascript:;">学习</a></li>
     <li class="layui-nav-item"><a href="javascript:;" id="houTai">后台</a></li>
 </ul>
@@ -121,10 +121,29 @@ Powered by .NET Core 3.1.0 on Linux</span>
                 layer.close(index);
             })
         });
-        $("#lunTan").click(function () {
-            layer.msg("进入论坛中...");
+        //选择考试
+        $("#choiceExam").click(function () {
+           //layer.msg(this.innerHTML);
+                window.location.href="${whContextPath}/sys/toChoiceExamPage.action";
 
         });
+        //考试历史
+        $("#examHistory").click(function () {
+            //layer.msg(this.innerHTML);
+            window.location.href="${whContextPath}/sys/toExamHistoryPage.action";
+        });
+        //论坛模块
+        $("#lunTan").click(function () {
+            layer.msg("进入论坛中...");
+            setTimeout(function () {
+                window.location.href="${whContextPath}/sys/toForumPage.action";
+            }, 1000);
+        });
+        //交友
+        $("#makeFriends").click(function () {
+            window.location.href="${whContextPath}/sys/toMakeFriendsPage.action";
+        });
+        //后台
         $("#houTai").click(function () {
             layer.msg("进入后台中...");
             //刷新界面

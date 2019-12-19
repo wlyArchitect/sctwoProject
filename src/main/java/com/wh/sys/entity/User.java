@@ -15,8 +15,6 @@ public class User {
 
     private String userHeadPortrait;
 
-    private Short userRole;
-
     private Date userCreateDate;
 
     private Short available;
@@ -69,13 +67,6 @@ public class User {
         this.userHeadPortrait = userHeadPortrait;
     }
 
-    public Short getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(Short userRole) {
-        this.userRole = userRole;
-    }
 
     public Date getUserCreateDate() {
         return userCreateDate;

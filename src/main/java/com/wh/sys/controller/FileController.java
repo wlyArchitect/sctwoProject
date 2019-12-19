@@ -42,12 +42,12 @@ public class FileController {
         //文件大小
         long size = mf.getSize();
         //2.得到上传文件的路径
-        String realPath = request.getServletContext().getRealPath("/upload");
+        String realPath = request.getSession().getServletContext().getRealPath("/upload");
+        System.err.println(realPath);
         //3.组装文件对象
         File file = new File(realPath,name);
         //4.把文件流写到file
         mf.transferTo(file);
-
         System.out.println(mf);
         return "system/main/success";
     }
@@ -69,7 +69,7 @@ public class FileController {
         //3.根据当前日期生成文件夹
         String dirName = RandomUtils.getCurrentDateForString();
         //4.得到上传文件的路径
-        String realPath = request.getServletContext().getRealPath("/upload");
+        String realPath = request.getSession().getServletContext().getRealPath("/upload");
         File newDir = new File(realPath,dirName);
         if (!newDir.exists()){
             newDir.mkdirs();

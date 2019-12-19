@@ -8,12 +8,11 @@
     <result column="USER_SEX" jdbcType="DECIMAL" property="userSex" />
     <result column="USER_PHONE" jdbcType="VARCHAR" property="userPhone" />
     <result column="USER_HEAD_PORTRAIT" jdbcType="VARCHAR" property="userHeadPortrait" />
-    <result column="USER_ROLE" jdbcType="DECIMAL" property="userRole" />
     <result column="USER_CREATE_DATE" jdbcType="TIMESTAMP" property="userCreateDate" />
     <result column="AVAILABLE" jdbcType="DECIMAL" property="available" />
   </resultMap>
   <sql id="Base_Column_List">
-    USER_ID, USER_NAME, USER_PWD, USER_SEX, USER_PHONE, USER_HEAD_PORTRAIT, USER_ROLE, 
+    USER_ID, USER_NAME, USER_PWD, USER_SEX, USER_PHONE, USER_HEAD_PORTRAIT,
     USER_CREATE_DATE, AVAILABLE
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -55,9 +54,6 @@
       <if test="userHeadPortrait != null">
         USER_HEAD_PORTRAIT,
       </if>
-      <if test="userRole != null">
-        USER_ROLE,
-      </if>
       <if test="userCreateDate != null">
         USER_CREATE_DATE,
       </if>
@@ -81,9 +77,6 @@
       </if>
       <if test="userHeadPortrait != null">
         #{userHeadPortrait,jdbcType=VARCHAR},
-      </if>
-      <if test="userRole != null">
-        #{userRole,jdbcType=DECIMAL},
       </if>
       <if test="userCreateDate != null">
         #{userCreateDate,jdbcType=TIMESTAMP},
@@ -111,9 +104,6 @@
       <if test="userHeadPortrait != null">
         USER_HEAD_PORTRAIT = #{userHeadPortrait,jdbcType=VARCHAR},
       </if>
-      <if test="userRole != null">
-        USER_ROLE = #{userRole,jdbcType=DECIMAL},
-      </if>
       <if test="userCreateDate != null">
         USER_CREATE_DATE = #{userCreateDate,jdbcType=TIMESTAMP},
       </if>
@@ -130,7 +120,6 @@
       USER_SEX = #{userSex,jdbcType=DECIMAL},
       USER_PHONE = #{userPhone,jdbcType=VARCHAR},
       USER_HEAD_PORTRAIT = #{userHeadPortrait,jdbcType=VARCHAR},
-      USER_ROLE = #{userRole,jdbcType=DECIMAL},
       USER_CREATE_DATE = #{userCreateDate,jdbcType=TIMESTAMP},
       AVAILABLE = #{available,jdbcType=DECIMAL}
     where USER_ID = #{userId,jdbcType=DECIMAL}

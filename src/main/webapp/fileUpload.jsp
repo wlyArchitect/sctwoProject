@@ -11,7 +11,8 @@
     <title>文件上传</title>
 </head>
 <body>
-<form action="${whContextPath}/upload/upload02.action" method="post" enctype="multipart/form-data">
+<form action="${whContextPath}/upload/upload01.action"
+      method="post" enctype="multipart/form-data">
     选择文件<input type="file" name="mf">
     <br>
     <input type="submit" value="提交">

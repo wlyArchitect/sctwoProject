@@ -30,6 +30,7 @@ create table exam_users(
   User_create_date DATE,-- 创建时间
   available number(2) -- 是否可用:0不可用 1可用
 );
+alter table exam_users drop column User_role;
 alter table exam_users modify (User_head_portrait varchar2(100));
 -- 权限表
 create table exam_role(
