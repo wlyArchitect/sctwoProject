@@ -154,6 +154,13 @@
       <version>1.1.16</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.58</version>
+    </dependency>
+
     <!--
      json字符串和javaBean对象互相转换,使用jackson的jar包
      -->

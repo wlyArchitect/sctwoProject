@@ -57,11 +57,12 @@ public class LogController {
     @RequestMapping("/toRegister")
     public String toRegister(UserVo userVo){
         //设置可用
-        userVo.setAvailable(new Short("1"));
+        userVo.setAvailable(1);
+        userVo.setType(1);
         //设置创建日期
         userVo.setUserCreateDate(new Date());
         System.err.println(userVo.getUserHeadPortrait());
-        //userService.insertUser(userVo);
+        userService.insertUser(userVo);
         return "system/main/login";
     }
 

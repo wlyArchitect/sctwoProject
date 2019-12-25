@@ -4,34 +4,37 @@ select sysdate from dual;
   创建菜单表
  */
 create table sys_menu(
-   id number primary key,
-   pid number,-- 父id
+   id number(5) primary key,
+   pid number(5),-- 父id
    title varchar2(50),-- 菜单名称
-   href varchar2(50),-- 跳转地址
-   target varchar2(30),-- 打开方式
+   spread number(5),-- 是否展开
    icon varchar2(30), -- 图标
-   available number -- 0 不可用 1可用
+   available number(5) -- 0 不可用 1可用
 );
+select * from sys_menu;
+-- 修改字段类型
+alter table sys_menu modify (available number(5));
 /*
   交友模块:
     好友表
     好友关系表
     信息表:发消息表 接收消息表
  */
-drop table exam_users;
+drop table SYS_USER;
 create table exam_users(
   User_id number(5) primary key ,
   User_name  varchar2(20) ,
   User_pwd   varchar2(32),
-  User_sex   number(2), -- 0女 1男
+  User_sex   number(5), -- 0女 1男
   User_phone varchar2(20),
   User_head_portrait varchar2(50), -- 头像的url地址
-  User_role number(2),
+  User_role number(5),
   User_create_date DATE,-- 创建时间
-  available number(2) -- 是否可用:0不可用 1可用
+  available number(5), -- 是否可用:0不可用 1可用
+  type number(5) -- 用户类型
 );
-alter table exam_users drop column User_role;
-alter table exam_users modify (User_head_portrait varchar2(100));
+alter table SYS_USER drop column User_role;
+alter table SYS_USER modify (User_head_portrait varchar2(100));
 -- 权限表
 create table exam_role(
   rid number(5) primary key,

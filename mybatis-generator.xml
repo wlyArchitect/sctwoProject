@@ -64,8 +64,10 @@
 
             常用的表:
               exam_users 用户表
+              sys_menu   菜单表
          -->
-        <table tableName="exam_users" domainObjectName="User"
+        <!--<table tableName="exam_users" domainObjectName="User"-->
+        <table tableName="sys_menu" domainObjectName="Menu"
                 enableCountByExample="false"
                 enableUpdateByExample="false"
                 enableDeleteByExample="false"

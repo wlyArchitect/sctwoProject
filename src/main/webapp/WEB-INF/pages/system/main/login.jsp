@@ -24,7 +24,7 @@
     </div>
     <div class="layui-form-item input-item">
         <label class="layui-form-label">密码</label>
-        <input type="password" placeholder="请输入密码" autocomplete="off" name="userPwd" class="layui-input"
+        <input type="password" placeholder="请输入密码"  name="userPwd" class="layui-input"
                lay-verify="required">
     </div>
     <div class="layui-form-item input-item" id="imgCode">

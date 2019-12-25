@@ -17,7 +17,8 @@ public class User {
 
     private Date userCreateDate;
 
-    private Short available;
+    private Integer available;
+    private Integer type;
 
     public Integer getUserId() {
         return userId;
@@ -67,7 +68,6 @@ public class User {
         this.userHeadPortrait = userHeadPortrait;
     }
 
-
     public Date getUserCreateDate() {
         return userCreateDate;
     }
@@ -76,11 +76,19 @@ public class User {
         this.userCreateDate = userCreateDate;
     }
 
-    public Short getAvailable() {
+    public Integer getAvailable() {
         return available;
     }
 
-    public void setAvailable(Short available) {
+    public void setAvailable(Integer available) {
         this.available = available;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }
