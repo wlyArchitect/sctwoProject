@@ -23,6 +23,6 @@ public class AppListener implements ServletContextListener {
         //取到ServletContext
         ServletContext context=arg0.getServletContext();
         context.setAttribute("whContextPath", context.getContextPath());
-        System.err.println("---------Servlet容器创建成功 wh被放到ServletContext作用域-------");
+        System.err.println("---------Servlet容器创建成功 whContextPath被放到ServletContext作用域-------");
     }
 }

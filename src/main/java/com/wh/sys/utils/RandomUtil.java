@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Random;
 import java.util.UUID;
 
-public class RandomUtils {
+public class RandomUtil {
     /**
      * 年月日
      */

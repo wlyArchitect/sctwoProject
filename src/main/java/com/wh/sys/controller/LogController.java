@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
 
-
 /**
  * 登录/注销用户
  *
@@ -58,7 +57,7 @@ public class LogController {
     public String toRegister(UserVo userVo){
         //设置可用
         userVo.setAvailable(1);
-        userVo.setType(1);
+        userVo.setType(2);
         //设置创建日期
         userVo.setUserCreateDate(new Date());
         System.err.println(userVo.getUserHeadPortrait());
@@ -96,6 +95,7 @@ public class LogController {
 
     /**
      * 登录到主页的处理
+     *
      */
     @RequestMapping("/toIndexHanding")
     public String toLogin(UserVo userVo, Model model) {

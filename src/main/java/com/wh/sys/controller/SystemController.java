@@ -50,4 +50,9 @@ public class SystemController {
     public String toHouTaiPage(){
         return "system/background/index";
     }
+
+    /**
+     * 跳转到用户管理
+     */
+
 }

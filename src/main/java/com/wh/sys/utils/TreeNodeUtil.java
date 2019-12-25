@@ -15,7 +15,7 @@ import java.util.List;
  * @data 2019/11/17 10:28
  * @description
  */
-public class TreeNodeUtils {
+public class TreeNodeUtil {
     private Integer id;
     /**
      * 数据库中查询出的数据没有层级关系
@@ -27,12 +27,14 @@ public class TreeNodeUtils {
     private String title;
     private String icon;
     private String href;
+    /**
+     * 是否展开,用于前台layui展示时需要true false
+     */
     private Boolean spread;
-    private String target;
     /**
      * 参照navs.json的格式  children放的又是一个数组,放的对象就是本身
      */
-    private List<TreeNodeUtils> children = new ArrayList<>();
+    private List<TreeNodeUtil> children = new ArrayList<>();
     /**
      * 复选树的必要属性,用于角色分配菜单
      * 选中就是"1"
@@ -41,22 +43,21 @@ public class TreeNodeUtils {
     private String checkArr="0";
 
     /**
-     * 左侧导航树的构造器
+     * 首页左侧导航树的构造器
      */
-    public TreeNodeUtils(Integer id, Integer pid, String title, String icon, String href, Boolean spread, String target) {
+    public TreeNodeUtil(Integer id, Integer pid, String title, String icon, String href, Boolean spread) {
         this.id = id;
         this.pid = pid;
         this.title = title;
         this.icon = icon;
         this.href = href;
         this.spread = spread;
-        this.target = target;
     }
 
     /**
      * d-tree的复选树使用,供角色分配菜单
      */
-    public TreeNodeUtils(Integer id, Integer pid, String title, Boolean spread, String checkArr) {
+    public TreeNodeUtil(Integer id, Integer pid, String title, Boolean spread, String checkArr) {
         this.id = id;
         this.pid = pid;
         this.title = title;
@@ -112,19 +113,11 @@ public class TreeNodeUtils {
         this.spread = spread;
     }
 
-    public String getTarget() {
-        return target;
-    }
-
-    public void setTarget(String target) {
-        this.target = target;
-    }
-
-    public List<TreeNodeUtils> getChildren() {
+    public List<TreeNodeUtil> getChildren() {
         return children;
     }
 
-    public void setChildren(List<TreeNodeUtils> children) {
+    public void setChildren(List<TreeNodeUtil> children) {
         this.children = children;
     }
 

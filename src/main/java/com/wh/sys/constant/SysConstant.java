@@ -67,22 +67,6 @@ public class SysConstant {
      * 默认图片地址
      */
     public static final Object DEFAULT_CAR_IMG = "images/defaultcarimage.png";
-    /**
-     * 单号前缀
-     */
-    public static final String CAR_ORDER_CZ = "CZ";
-    public static final String CAR_ORDER_JC = "JC";
-    /**
-     * 汽车归还状态: false 0
-     *             true  1
-      */
-    public static final Integer RENT_BACK_FALSE = 0;
-    public static final Integer RENT_BACK_TRUE = 1;
-    /**
-     * 汽车出租状态: false 0  未出租
-     *             true  1  已出租
-     */
-    public static final Integer RENT_CAR_FALSE =0 ;
-    public static final Integer RENT_CAR_TRUE =1 ;
+
 
 }

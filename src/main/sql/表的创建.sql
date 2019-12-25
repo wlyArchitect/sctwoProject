@@ -6,11 +6,13 @@ select sysdate from dual;
 create table sys_menu(
    id number(5) primary key,
    pid number(5),-- 父id
+   href varchar2(100), -- 链接地址
    title varchar2(50),-- 菜单名称
    spread number(5),-- 是否展开
    icon varchar2(30), -- 图标
    available number(5) -- 0 不可用 1可用
 );
+drop table sys_menu;
 select * from sys_menu;
 -- 修改字段类型
 alter table sys_menu modify (available number(5));

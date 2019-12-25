@@ -40,7 +40,11 @@
  -->
 <ul class="layui-nav" lay-filter="navTop" >
     <li class="layui-nav-item" >
-        <a href="javascript:;"><img src="${whContextPath}/upload/${user.userHeadPortrait}" class="layui-nav-img">${user.userName}</a>
+        <a href="javascript:;">
+            <img src="${whContextPath}/upload/${user.userHeadPortrait}" class="layui-nav-img">
+            ${user.userName}
+        </a>
+
         <dl class="layui-nav-child">
             <!-- 二级菜单 -->
             <dd><a href="javascript:;" id="logout">注销</a></dd>

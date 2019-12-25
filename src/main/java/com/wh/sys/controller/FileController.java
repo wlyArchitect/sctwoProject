@@ -1,7 +1,7 @@
 package com.wh.sys.controller;
 
-import com.wh.sys.utils.AppFileUtils;
-import com.wh.sys.utils.RandomUtils;
+import com.wh.sys.utils.AppFileUtil;
+import com.wh.sys.utils.RandomUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,9 +65,9 @@ public class FileController {
         InputStream inputStream = mf.getInputStream();
         //2.得到文件名称
         String originalFilename = mf.getOriginalFilename();
-        String newName = RandomUtils.createFileNameUseTime(originalFilename);
+        String newName = RandomUtil.createFileNameUseTime(originalFilename);
         //3.根据当前日期生成文件夹
-        String dirName = RandomUtils.getCurrentDateForString();
+        String dirName = RandomUtil.getCurrentDateForString();
         //4.得到上传文件的路径
         String realPath = request.getSession().getServletContext().getRealPath("/upload");
         File newDir = new File(realPath,dirName);
@@ -99,11 +99,11 @@ public class FileController {
         //2.得到文件名称
         String originalFilename = mf.getOriginalFilename();
         //todo 得到文件新名字
-        String newName = RandomUtils.createFileNameUseTime(originalFilename);
+        String newName = RandomUtil.createFileNameUseTime(originalFilename);
         // 3.根据当前日期生成文件夹
-        String dirName = RandomUtils.getCurrentDateForString();
+        String dirName = RandomUtil.getCurrentDateForString();
         //4.得到上传文件的路径:D盘下的路径
-        String realPath = AppFileUtils.PATH;
+        String realPath = AppFileUtil.PATH;
         File newDir = new File(realPath,dirName);
         if (!newDir.exists()){
             newDir.mkdirs();
@@ -128,7 +128,6 @@ public class FileController {
      */
     @RequestMapping("/downloadFile")
     public ResponseEntity<Object> downloadFile(String path, HttpServletResponse response){
-        return AppFileUtils.downloadFile(response, path,"" );
+        return AppFileUtil.downloadFile(response, path,"");
     }
-
 }

@@ -13,15 +13,15 @@ package com.wh.sys.utils;
  * @description
  *
  */
-public class DataGridViewUtils {
+public class DataGridViewUtil {
     private Integer code=0;
     private String msg="";
     private Long count;
     private Object data;
 
-    public DataGridViewUtils() {
+    public DataGridViewUtil() {
     }
-    public DataGridViewUtils(Object data) {
+    public DataGridViewUtil(Object data) {
         super();
         this.data = data;
     }
@@ -31,7 +31,7 @@ public class DataGridViewUtils {
      * @param count
      * @param data
      */
-    public DataGridViewUtils(Long count, Object data) {
+    public DataGridViewUtil(Long count, Object data) {
         super();
         this.count = count;
         this.data = data;

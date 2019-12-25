@@ -17,14 +17,14 @@ import java.util.Properties;
  * @data 2019/11/15 19:27
  * @description
  */
-public class AppFileUtils {
+public class AppFileUtil {
     /**
      * 得到文件上传的路径的根目录
      */
     public static String PATH;
 
     static {
-        InputStream stream = AppFileUtils.class.getClassLoader().getResourceAsStream("file.properties");
+        InputStream stream = AppFileUtil.class.getClassLoader().getResourceAsStream("file.properties");
         BufferedReader bf = new BufferedReader(new InputStreamReader(stream));
         Properties properties=new Properties();
         try {
@@ -44,7 +44,7 @@ public class AppFileUtils {
      */
     public static ResponseEntity<Object> downloadFile(HttpServletResponse response, String path, String oldName) {
         //4,使用绝对路径+相对路径去找到文件对象
-        File file=new File(AppFileUtils.PATH,path);
+        File file=new File(AppFileUtil.PATH,path);
         //5,判断文件是否存在
         if(file.exists()) {
             try {
