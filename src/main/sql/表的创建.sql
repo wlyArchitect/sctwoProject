@@ -1,5 +1,7 @@
 -- 测试
 select sysdate from dual;
+-- 查看oracle server端字符编码,gbk一个汉字占用两个字节;
+select userenv('language') from dual;
 /*
   创建菜单表
  */
@@ -45,9 +47,9 @@ create table exam_role(
   available number(2)
 );
 -- 修改字段类型
-alter table exam_role modify (available number(2));
+alter table SYS_ROLE modify (available number(2));
 --
-drop table exam_role_user;
+drop table SYS_ROLE_USER;
 create table exam_role_user(
    user_id number(2),
    rid number(2)

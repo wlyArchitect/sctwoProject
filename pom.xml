@@ -322,7 +322,7 @@
       </resource>
       <!-- 所有的配置文件都编译到classes下去 -->
       <resource>
-        <directory>src/main/resources</directory>
+        <directory>src/main/resource</directory>
         <includes>
           <include>**/*.*</include>
         </includes>

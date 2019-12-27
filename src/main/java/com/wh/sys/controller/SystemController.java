@@ -52,7 +52,25 @@ public class SystemController {
     }
 
     /**
-     * 跳转到用户管理
+     * 跳转菜单管理
      */
+    @RequestMapping("/toMenuManager")
+    public String toMenuManager(){
+        return "system/menu/menuManager";
+    }
+    /**
+     * 跳转菜单管理左边的的菜单树页面
+     */
+    @RequestMapping("/toMenuLeft")
+    public String toMenuLeft() {
+        return "system/menu/menuLeft";
+    }
+    /**
+     * 跳转菜单管理右边的菜单列表
+     */
+    @RequestMapping("/toMenuRight")
+    public String toMenuRight() {
+        return "system/menu/menuRight";
+    }
 
 }

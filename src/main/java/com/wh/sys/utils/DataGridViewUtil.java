@@ -8,10 +8,6 @@ package com.wh.sys.utils;
  * //todo 修改... layui+list数据格式
  * 由于后台数据库查询出的数据是list的平级数据,使用tree的第4种layui+list风格
  * 细节这里的list是指数据库查询出的数据
- * @author 万浩
- * @data 2019/11/18 20:40
- * @description
- *
  */
 public class DataGridViewUtil {
     private Integer code=0;

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 文件上传
+ * 文件上传的控制器
  * @author 万浩
  * @data 2019/12/14 21:57
  * @description

@@ -3,9 +3,9 @@
 <html>
 <head>
     <title>首页-二阶段项目</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/wlyLogo.png">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/layui/css/layui.css" media="all"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index.css" media="all"/>
+    <link rel="icon" href="${whContextPath}/resources/images/wlyLogo.png">
+    <link rel="stylesheet" href="${whConetxtPath}/resources/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="${whContextPath}/resources/css/index.css" media="all"/>
 </head>
 <body class="main_body">
 <div class="layui-layout layui-layout-admin">
@@ -25,6 +25,11 @@
                 <li class="layui-nav-item lockcms" pc>
                     <a href="javascript:;"><i class="seraph icon-lock"></i><cite>锁屏</cite></a>
                 </li>
+                <!-- todo 1.保存登陆后传过来的数据 -->
+                <input type="hidden" value="${sessionScope.userName}" id="userName">
+                <input type="hidden" value="${sessionScope.headImg}" id="headImg">
+                <input type="hidden" value="${sessionScope.whContextPath}" id="whContextPath">
+
                 <li class="layui-nav-item" id="userInfo">
                     <a href="javascript:;"><img
                             src="${whContextPath}/upload/${sessionScope.user.userHeadPortrait}"
@@ -32,12 +37,13 @@
                             class="adminName">${sessionScope.user.userName }</cite></a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;"
-                               data-url="${pageContext.request.contextPath}/resources/page/user/userInfo.html"><i
+                               data-url="${whContextPath}/resources/page/user/userInfo.html"><i
                                 class="seraph icon-ziliao" data-icon="icon-ziliao"></i><cite>个人资料</cite></a></dd>
                         <dd><a href="javascript:;"
-                               data-url="${pageContext.request.contextPath}/resources/page/user/changePwd.html"><i
+                               data-url="${whContextPath}/resources/page/user/changePwd.html"><i
                                 class="seraph icon-xiugai" data-icon="icon-xiugai"></i><cite>修改密码</cite></a></dd>
-                        <dd><a href="javascript:;" class="showNotice"><i
+                        <dd><a href="javascript:;" class="showNotice">
+                            <i
                                 class="layui-icon">&#xe645;</i><cite>系统公告</cite><span
                                 class="layui-badge-dot"></span></a></dd>
                         <dd pc><a href="javascript:;" class="functionSetting"><i class="layui-icon">&#xe620;</i><cite>功能设定</cite><span
@@ -100,7 +106,7 @@
             <div class="layui-tab-content clildFrame">
                 <div class="layui-tab-item layui-show">
                     <!-- todo 工作台界面 -->
-                    <iframe src="${pageContext.request.contextPath}/desk/toDeskManager.action">
+                    <iframe src="${whContextPath}/desk/toDeskManager.action">
                     </iframe>
                 </div>
             </div>
@@ -119,6 +125,8 @@
 <script type="text/javascript" src="${whContextPath}/resources/layui/layui.js"></script>
 <!-- 公告栏,锁屏都用于此 -->
 <script type="text/javascript" src="${whContextPath}/resources/js/cache.js"></script>
+
+<%--<%@include file="../../../../resources/js/cache.js"%>--%>
 <script type="text/javascript">
     var $, tab, dataStr, layer;
     layui.config({
@@ -134,7 +142,7 @@
         tab = layui.bodyTab({
             openTabNum: "50",  //最大可打开窗口数量
             <%--url: "${whContextPath}/resources/json/navs2.json" //获取菜单json地址,初始数据--%>
-            url: "${pageContext.request.contextPath}/menu/loadIndexLeftMenuJson.action" //获取菜单json地址
+            url: "${whContextPath}/menu/loadIndexLeftMenuJson.action" //获取菜单json地址
         });
         //通过顶部菜单获取左侧二三级菜单   注：此处只做演示之用，实际开发中通过接口传参的方式获取导航数据
         function getData(json) {

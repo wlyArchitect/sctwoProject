@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
- * 登录/注销用户
+ * 登录/注销用户 控制器
  *
  * @author 万浩
  * @data 2019/12/12 21:48
@@ -37,11 +37,11 @@ public class LogController {
      * 对表单数据的(用户名是否重复)的处理
      */
     @RequestMapping("/toRegisterHanding")
-    public void toRegisterHanding(String userName,HttpServletResponse response){
-        boolean flag=false;
+    public void toRegisterHanding(String userName, HttpServletResponse response) {
+        boolean flag = false;
         User user = userService.getUserByUserName(userName);
-        if (user!=null){
-            flag=true;
+        if (user != null) {
+            flag = true;
         }
         try {
             response.getWriter().write(String.valueOf(flag));
@@ -49,12 +49,13 @@ public class LogController {
             e.printStackTrace();
         }
     }
+
     /**
      * 注册界面:
      * 进行注册操作
      */
     @RequestMapping("/toRegister")
-    public String toRegister(UserVo userVo){
+    public String toRegister(UserVo userVo) {
         //设置可用
         userVo.setAvailable(1);
         userVo.setType(2);
@@ -67,10 +68,11 @@ public class LogController {
 
     /**
      * 跳转到注册界面
+     *
      * @return
      */
     @RequestMapping("/toRegisterPage")
-    public String toRegister(){
+    public String toRegister() {
         return "system/main/register";
     }
 
@@ -83,6 +85,7 @@ public class LogController {
         //删除用户的session
         //WebUtils.getHttpSession().removeAttribute("user");
     }
+
     /**
      * 跳转到登陆页面
      */
@@ -95,20 +98,23 @@ public class LogController {
 
     /**
      * 登录到主页的处理
-     *
      */
     @RequestMapping("/toIndexHanding")
     public String toLogin(UserVo userVo, Model model) {
         String code = (String) WebUtils.getHttpSession().getAttribute("code");
-        if (!userVo.getCode().equals(code)){
-            model.addAttribute("error", SysConstant.USER_LOGIN_CODE_ERROR );
+        if (!userVo.getCode().equals(code)) {
+            model.addAttribute("error", SysConstant.USER_LOGIN_CODE_ERROR);
             return "system/main/login";
         }
-        System.err.println(userVo.getUserName()+"\t"+userVo.getUserPwd());
+        System.err.println(userVo.getUserName() + "\t" + userVo.getUserPwd());
         User user = this.userService.login(userVo);
         if (null != user) {
             //放到session
-            WebUtils.getHttpSession().setAttribute("user", user);
+            HttpSession session = WebUtils.getHttpSession();
+            session.setAttribute("user", user);
+            session.setAttribute("whContextPath",session.getServletContext().getContextPath());
+            session.setAttribute("headImg",user.getUserHeadPortrait());
+            session.setAttribute("userName", user.getUserName());
             //记录登陆日志 向sys_login_log里面插入数据
             return "system/main/index";
         } else {
@@ -116,14 +122,15 @@ public class LogController {
             return "system/main/login";
         }
     }
+
     /**
      * 得到登录验证码
      */
     @RequestMapping("/getCode")
     public void getCode(HttpServletResponse response, HttpSession session) throws IOException {
         //定义图形验证码的长和宽 4个字符 线条个数5条
-        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(116, 36,4,5);
-        session.setAttribute("code",lineCaptcha.getCode());
+        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(116, 36, 4, 5);
+        session.setAttribute("code", lineCaptcha.getCode());
         //拿到输出流
         ServletOutputStream outputStream = response.getOutputStream();
         //输出页面

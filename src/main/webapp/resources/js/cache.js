@@ -1,5 +1,10 @@
 var cacheStr = window.sessionStorage.getItem("cache"),
     oneLoginStr = window.sessionStorage.getItem("oneLogin");
+//定义3个变量
+var userName="";
+var headImg="";
+var whContextPath="";
+
 layui.use(['form','jquery',"layer"],function() {
     var form = layui.form,
         $ = layui.jquery,
@@ -54,9 +59,12 @@ layui.use(['form','jquery',"layer"],function() {
             });
         }
     }
+
+
     $(".showNotice").on("click",function(){
-        showNotice();
-    })
+
+       showNotice();
+    });
 
     //锁屏
     function lockPage(){
@@ -64,8 +72,8 @@ layui.use(['form','jquery',"layer"],function() {
             title : false,
             type : 1,
             content : '<div class="admin-header-lock" id="lock-box">'+
-                            '<div class="admin-header-lock-img"><img src="../resources/images/wlyLogo.png" class="userAvatar"/></div>'+
-                            '<div class="admin-header-lock-name" id="lockUserName">wly</div>'+
+                            '<div class="admin-header-lock-img"><img src="'+whContextPath+'/upload/'+headImg+'" class="userAvatar"/></div>'+
+                            '<div class="admin-header-lock-name" id="lockUserName">'+userName+'</div>'+
                             '<div class="input_btn">'+
                                 '<input type="password" class="admin-header-lock-input layui-input" autocomplete="off" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />'+
                                 '<button class="layui-btn" id="unlock">解锁</button>'+
@@ -85,11 +93,17 @@ layui.use(['form','jquery',"layer"],function() {
     }
     $(".lockcms").on("click",function(){
         window.sessionStorage.setItem("lockcms",true);
+        userName=document.getElementById("userName").value;
+        //console.log(userName);
+        headImg=document.getElementById("headImg").value;
+        //console.log(headImg);
+        whContextPath=document.getElementById("whContextPath").value;
+        //console.log(whContextPath);
         lockPage();
-    })
+    });
     // 判断是否显示锁屏
     if(window.sessionStorage.getItem("lockcms") == "true"){
-        lockPage();
+       // lockPage();
     }
     // 解锁
     $("body").on("click","#unlock",function(){

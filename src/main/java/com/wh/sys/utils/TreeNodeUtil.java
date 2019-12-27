@@ -34,7 +34,7 @@ public class TreeNodeUtil {
     /**
      * 参照navs.json的格式  children放的又是一个数组,放的对象就是本身
      */
-    private List<TreeNodeUtil> children = new ArrayList<>();
+    private List<TreeNodeUtil> children = new ArrayList<>(10);
     /**
      * 复选树的必要属性,用于角色分配菜单
      * 选中就是"1"
