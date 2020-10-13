@@ -25,7 +25,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <version>4.13.1</version>
     </dependency>
     <!--
     TODO 导入ssm整合需要的jar包
